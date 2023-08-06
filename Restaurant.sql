@@ -161,5 +161,13 @@ AND user.user_id NOT IN (SELECT DISTINCT user_id FROM rate_res)
 AND user.user_id NOT IN (SELECT DISTINCT user_id FROM `order`) 
 ORDER BY user.user_id
 
+#Question 5
+SELECT ROUND(AVG(sub_food)) AS avg_sub_food
+FROM (
+	SELECT food_id, COUNT(sub_id) AS sub_food
+	FROM sub_food
+	GROUP BY food_id
+) AS subquery
+
 
 
