@@ -153,7 +153,13 @@ GROUP BY user_id
 ORDER BY total_orders DESC
 LIMIT 1;
 
-
+#Question 4
+SELECT * 
+FROM user
+WHERE user.user_id NOT IN (SELECT DISTINCT user_id FROM like_res)
+AND user.user_id NOT IN (SELECT DISTINCT user_id FROM rate_res)
+AND user.user_id NOT IN (SELECT DISTINCT user_id FROM `order`) 
+ORDER BY user.user_id
 
 
 
